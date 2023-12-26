@@ -8,6 +8,7 @@ if ((bool) $score)
 {
     var_dump("hello");
 }
+echo "<br>";
 
 $score = -7;
 if ((bool) $score)
