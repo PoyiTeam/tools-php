@@ -51,6 +51,7 @@ $hungryMsg = getMessage();
 
 // variadic function
 echo "<hr>";
+
 function sum_numbers(bool $dumpArr, int|float ...$nums): int|float // $nums will be an array, size depend on input parameters
 {
     if ($dumpArr) {
@@ -91,6 +92,7 @@ $multiply = function ($num) use ($multiplier) {
 echo sum(5, 2, $multiply) . "<br>";  // (5 + 2) * 2
 
 echo "short version <br>";
+// short version (arrow function)
 $multiplier = 5;
 $multiply = fn($num) => $num * $multiplier;
 function sum($a, $b, $callback)
@@ -98,6 +100,10 @@ function sum($a, $b, $callback)
     // callback
     return $callback($a + $b);
 }
-echo sum(5, 2, $multiply) . "<br>";  // (5 + 2) * 2
+echo sum(5, 2, $multiply) . "<br>";  // (5 + 2) * 5
+echo sum(5, 2, fn($num) => $num * $multiplier) . "<br>";
 
+echo "<hr>";
+
+echo "callable";
 ?>
