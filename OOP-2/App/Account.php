@@ -23,6 +23,12 @@ class Account
         }
 
         $this->balance = $newBalance;
+        $this->sendEmail();
+    }
+
+    private function sendEmail()
+    {
+        // do send Email
     }
 }
 
