@@ -13,7 +13,7 @@ spl_autoload_register(
     }
 );
 
-use App\{Account, Toaster, ToasterPremium};
+use App\{Account, Toaster, ToasterPremium, RestaurantOne};
 
 // instance object
 $myAccount = new Account('John', 10);
@@ -24,7 +24,12 @@ echo $myAccount->setBalance(20);
 
 //inheritance
 echo "<h3>inheritance</h3>";
-$myToaster = new ToasterPremium();
+$myToaster = new ToasterPremium(3);
 $myToaster->toast();
 
+echo "<br>";
+
+echo "<h3>interfaces</h3>";
+$restaurant = new RestaurantOne();
+$restaurant->prepareFood();
 ?>
