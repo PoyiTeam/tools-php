@@ -4,9 +4,10 @@ namespace App;
 
 class FoodApp
 {
-    public function __construct(RestaurantInterface $restaurant)
+    public RestaurantInterface $restaurant;
+    public function __construct(RestaurantInterface $newRestaurant)
     {
-        $this->$restaurant = $restaurant;
-        $restaurant->prepareFood();
+        $this->restaurant = $newRestaurant;
+        $this->restaurant->prepareFood();
     }
 }

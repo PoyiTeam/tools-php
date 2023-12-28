@@ -1,15 +1,12 @@
 <?php
 
-
 namespace App;
-
-use App\RestaurantInterface;
 
 class RestaurantOne implements RestaurantInterface
 {
     public function prepareFood()
     {
-        echo "Preparing food.";
+        echo "Preparing food from restaurant one.";
     }
 }
 

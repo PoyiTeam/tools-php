@@ -1,7 +1,11 @@
 <?php
+use App\RestaurantInterface;
+use App\RestaurantInterface;
+use App\RestaurantInterface;
+
 declare(strict_types=1);
 
-require_once "App/FoodApp.php";
+// require_once "App/FoodApp.php";
 
 // requrie all class under __DIR__
 spl_autoload_register(
@@ -27,13 +31,16 @@ echo "<h3>inheritance</h3>";
 $myToaster = new ToasterPremium(3);
 $myToaster->toast();
 
-echo "<br>";
-
 echo "<h3>interfaces</h3>";
 $restaurant = new RestaurantOne();
 $restaurant->prepareFood();
 echo "<br>";
 
+echo "<h3>Polymorphism</h3>";
+$restaurant = new FoodApp(new RestaurantTwo());
 
-$restaurant = new FoodApp(new RestaurantOne());
+echo "<h3>Anonymous class</h3>";
+$restaurant = new FoodApp(new class implements RestaurantInterface {
+
+});
 ?>
