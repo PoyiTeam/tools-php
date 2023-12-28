@@ -1,8 +1,4 @@
 <?php
-use App\RestaurantInterface;
-use App\RestaurantInterface;
-use App\RestaurantInterface;
-
 declare(strict_types=1);
 
 // require_once "App/FoodApp.php";
@@ -17,7 +13,7 @@ spl_autoload_register(
     }
 );
 
-use App\{Account, Toaster, ToasterPremium, RestaurantOne, RestaurantTwo, FoodApp};
+use App\{Account, Toaster, ToasterPremium, RestaurantOne, RestaurantTwo, FoodApp, RestaurantInterface};
 
 // instance object
 $myAccount = new Account('John', 10);
@@ -40,7 +36,15 @@ echo "<h3>Polymorphism</h3>";
 $restaurant = new FoodApp(new RestaurantTwo());
 
 echo "<h3>Anonymous class</h3>";
-$restaurant = new FoodApp(new class implements RestaurantInterface {
+$restaurant = new FoodApp(new class ("popup") implements RestaurantInterface {
 
+    public function __construct(public string $name)
+    {
+    }
+
+    public function preparefood()
+    {
+        echo "{$this->name} restaurant preparing food";
+    }
 });
 ?>
