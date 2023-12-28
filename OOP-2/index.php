@@ -1,7 +1,7 @@
 <?php
 declare(strict_types=1);
 
-//require_once "App/Account.php";
+require_once "App/FoodApp.php";
 
 // requrie all class under __DIR__
 spl_autoload_register(
@@ -13,7 +13,7 @@ spl_autoload_register(
     }
 );
 
-use App\{Account, Toaster, ToasterPremium, RestaurantOne};
+use App\{Account, Toaster, ToasterPremium, RestaurantOne, RestaurantTwo, FoodApp};
 
 // instance object
 $myAccount = new Account('John', 10);
@@ -32,4 +32,8 @@ echo "<br>";
 echo "<h3>interfaces</h3>";
 $restaurant = new RestaurantOne();
 $restaurant->prepareFood();
+echo "<br>";
+
+
+$restaurant = new FoodApp(new RestaurantOne());
 ?>
