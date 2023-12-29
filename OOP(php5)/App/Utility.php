@@ -7,7 +7,8 @@ class Utility
     public static function printArr(array $array)
     {
         if (count($array) === 0) {
-            throw new \InvalidArgumentException("array is empty");
+            // throw new \InvalidArgumentException("array is empty");
+            throw new EmptyArrayException();
         }
 
         echo "<pre>";

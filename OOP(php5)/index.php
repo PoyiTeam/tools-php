@@ -1,4 +1,5 @@
 <?php
+
 //declare(strict_types=1);
 
 // require_once "App/FoodApp.php";
@@ -13,6 +14,7 @@ spl_autoload_register(
     }
 );
 
+use App\EmptyArrayException;
 use App\Account;
 use App\Toaster;
 use App\ToasterPremium;
@@ -21,6 +23,7 @@ use App\RestaurantTwo;
 use App\FoodApp;
 use App\RestaurantInterface;
 use App\Utility;
+use App\CurrentWeek;
 
 // instance object
 $myAccount = new Account("John", 10);
@@ -43,8 +46,30 @@ echo "<h3>Polymorphism</h3>";
 $restaurant = new FoodApp(new RestaurantTwo());
 
 echo "<h3>Exceptions</h3>";
-$myArr = [];
-Utility::printArr($myArr);
+try {
+    Utility::printArr([]);
+} catch (EmptyArrayException $e) {
+    echo "Custom excpetion: {$e->getMessage()}<br>";
+} catch (InvalidArgumentException $e) {
+    echo "InvalidArgumentException: {$e->getMessage()}<br>";
+} catch (Exception $e) {
+    echo "Default exception: {$e->getMessage()}<br>";
+} finally {
+    echo "Finally block<br>";
+}
 
+// Iterator
+echo "<h3>Date time iterator</h3>";
+$currentWeek = new CurrentWeek();
+
+function foo($iterable)
+{
+    foreach ($iterable as $key => $value) {
+        var_dump($key, $value);
+        echo "<br>";
+    }
+}
+
+foo($currentWeek);
 
 ?>
