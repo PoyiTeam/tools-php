@@ -1,5 +1,5 @@
 <?php
-declare(strict_types=1);
+//declare(strict_types=1);
 
 // require_once "App/FoodApp.php";
 
@@ -13,7 +13,16 @@ spl_autoload_register(
     }
 );
 
-use App\{Account, Toaster, ToasterPremium, RestaurantOne, RestaurantTwo, FoodApp, RestaurantInterface};
+use App\{
+    Account,
+    Toaster,
+    ToasterPremium,
+    RestaurantOne,
+    RestaurantTwo,
+    FoodApp,
+    RestaurantInterface,
+    Utility,
+};
 
 // instance object
 $myAccount = new Account('John', 10);
@@ -47,4 +56,9 @@ $restaurant = new FoodApp(new class ("popup") implements RestaurantInterface {
         echo "{$this->name} restaurant preparing food";
     }
 });
+
+echo "<h3>Exceptions</h3;";
+new Utility([]);
+
+
 ?>
