@@ -4,24 +4,13 @@ $ac = "";
 $pw = "";
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    if (empty($_POST["ac"])) {
-        //$nameErr = "Name is required";
-    } else {
+    if (!empty($_POST["ac"])) {
         $ac = test_input($_POST["ac"]);
     }
-    if (empty($_POST["pw"])) {
-        // $nameErr = "Name is required";
-    } else {
+    if (!empty($_POST["pw"])) {
         $pw = test_input($_POST["pw"]);
     }
 }
-
-// $ac = $_POST["ac"];
-// $pw = $_POST["pw"];
-
-// var_dump($_POST);
-// echo "<br>";
-// var_dump($_SERVER["SCRIPT_FILENAME"]);
 
 function test_input($data)
 {
