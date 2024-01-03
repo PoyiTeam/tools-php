@@ -18,9 +18,9 @@ $sql = "INSERT INTO myTable (ac,pw) VALUES (\"{$data[0]}\",\"{$data[1]}\")";
 $sth = $pdo->prepare($sql);
 
 if ($sth->execute($data)) {
-    echo '新增成功';
+    echo 'insert successed';
 } else {
-    echo '新增失敗';
+    echo 'insert failed';
 }
 
 unset($pdo);
