@@ -7,5 +7,7 @@ echo "<pre>" . print_r($myArr, true) . "</pre><hr>";
 
 // echo retype value to string
 echo 5;
-echo (string) 5;
+echo "<hr>";
+
+echo "php version : " . (string) phpversion();
 ?>
